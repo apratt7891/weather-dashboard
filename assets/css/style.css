@@ -1,6 +1,20 @@
+
+
+
 .dashboard {
     color: blanchedalmond;
-    background-color:  cornflowerblue;
     text-align: center;
-
+    padding: 10px;
+    background: linear-gradient(70deg, yellow, orange, pink);
+}
+#search-btn {
+    border-radius: 5px;
+    border: 1px solid black;
+    color: crimson;
+    font-size: medium;
+}
+.current-weather {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
