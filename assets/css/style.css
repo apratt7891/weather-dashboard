@@ -7,7 +7,7 @@
     padding: 10px;
     background: linear-gradient(70deg, yellow, orange, pink);
 }
-#search-btn {
+.searchBtn {
     border-radius: 5px;
     border: 1px solid black;
     color: crimson;
