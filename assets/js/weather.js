@@ -35,3 +35,10 @@ function getCurrentWeather(city) {
     })}
 
 
+function fiveDay(city) {
+    let fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=b953fd1506cd776c7f6b755564e6c8af' + ',us&APPID=';
+    fetch(fiveDayUrl).then(function(response) {
+        response.json().then(function(data) {
+        console.log(data,city);
+        });
+    })}
