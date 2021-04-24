@@ -1,25 +1,37 @@
 let apiKey = 'b953fd1506cd776c7f6b755564e6c8af';
-let searchCity = $("#search-city");
+let searchCity = document.querySelector('#search-city');
+let searchForm = document.querySelector('.search-form');
+let searched = document.querySelector("#city-date");
+let currentDate = document.querySelector('.today');
+
+let searchCurrentCity = function(event) {
+    event.preventDefault();
+let cityName = searchCity.value.trim();
+
+if (cityName) {
+    searched.textContent = cityName
+    currentDate.textContent = moment(new Date()).format("MM/DD/YYYY");
+    searchCity.value = "";
+    getCurrentWeather(cityName);
+} else {
+    ('Please enter a valid city name');
+}
+console.log(event);
+};
+
+searchForm.addEventListener("submit", searchCurrentCity);
+
+function getCurrentWeather(city) {
+       let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=` + city + `&appid=b953fd1506cd776c7f6b755564e6c8af&units=imperial`;
+       
+       fetch(apiUrl).then(function(response) {
+       response.json().then(function(data) {
+       console.log(data,city);
+
+       $("#current-temp").text(data.main.temp);
+       $("#wind").text(data.wind.speed);
+       $("#Humidity").text(data.main.humidity);
+       });
+    })}
 
 
-$(".searchBtn").on("click", function(event) {
-   event.preventDefault();
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&units=imperial&appid=' + apiKey)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(response) {
-   
-let searchCity = document.querySelector('#search-city').value;
-localStorage.setItem('city', JSON.stringify(searchCity));
-
-let currentCityTempEl = document.querySelector('#current-temp')
-currentCityTempEl.textContent = 'Current Temperature :' + response.maintemp + '°F';
-
-let currentCityWindEl = document.querySelector('#wind')
-currentCityWindEl.textContent = 'Wind :' + response + 'MPH';
-
-let currentCityHumidiyEl = document.querySelector('#Humidity')
-currentCityHumidiyEl.textContent = 'Humidity: ' + response + '%';
-
-})})
