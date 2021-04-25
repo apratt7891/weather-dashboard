@@ -4,6 +4,7 @@ let searchForm = document.querySelector('.search-form');
 let searched = document.querySelector("#city-date");
 let currentDate = document.querySelector('.today');
 
+
 let searchCurrentCity = function(event) {
     event.preventDefault();
 let cityName = searchCity.value.trim();
@@ -27,18 +28,20 @@ function getCurrentWeather(city) {
        fetch(apiUrl).then(function(response) {
        response.json().then(function(data) {
        console.log(data,city);
+       
 
-       $("#current-temp").text(data.main.temp);
-       $("#wind").text(data.wind.speed);
-       $("#Humidity").text(data.main.humidity);
-       });
-    })}
+       
+       $("#current-temp").text("Temp: " + data.main.temp + "°F");
+       $("#wind").text("Wind: " + data.wind.speed + "mph");
+       $("#Humidity").text("Humidity: " + data.main.humidity + "%");
 
+
+       })})}
 
 function fiveDay(city) {
-    let fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=b953fd1506cd776c7f6b755564e6c8af' + ',us&APPID=';
-    fetch(fiveDayUrl).then(function(response) {
-        response.json().then(function(data) {
-        console.log(data,city);
-        });
-    })}
+        let fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=b953fd1506cd776c7f6b755564e6c8af&units=imperial';
+        fetch(fiveDayUrl).then(function(response) {
+            response.json().then(function(data) {
+            console.log(data,city);
+            });
+        })}
