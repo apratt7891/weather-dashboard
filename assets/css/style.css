@@ -8,7 +8,7 @@ body {
 
 
 .card {
-    color: black;
+    color:  purple;
     text-align: center;
     padding: 10px;
     background: linear-gradient(70deg, yellow, orange, pink);
@@ -29,7 +29,7 @@ body {
 .fiveDayColor {
     padding: 20px;
     background-color:blanchedalmond;
-    color: black;
+    color: purple;
     float: left;
     margin: 10px;
     border: 1px solid lightgray;

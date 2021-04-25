@@ -12,7 +12,7 @@ for (var i = 0; i < localStorage.length; i++) {
     cityName.append("<li>" + city + "</li>");
 }
 
-let keyCount = 0;
+let count = 0;
 /* Search button for both current weather and 5 day */
 searchButton.click(function () {
 
@@ -25,26 +25,25 @@ searchButton.click(function () {
 
 
     if (searchInput == "") {
-        console.log(searchInput);
     } else {
         $.ajax({
             url: currentDay,
             method: "GET"
         }).then(function (response) {
-            /* list-group append text */
+            /* add text to list group*/
             
             let cityName = $(".list-group").addClass("list-group-item");
             cityName.append("<li>" + response.name + "</li>");
             
-            let local = localStorage.setItem(keyCount, response.name);
-            keyCount = keyCount + 1;
+            let local = localStorage.setItem(count, response.name);
+            count = count + 1;
 
             /* Current Weather append text */
-            let currentCard = $(".currentCard").append("<div>").addClass("card-body");
-            currentCard.empty();
-            let currentName = currentCard.append("<p>");
+            let currentWeather = $(".currentWeather").append("<div>").addClass("card-body");
+            currentWeather.empty();
+            let currentName = currentWeather.append("<p>");
             
-            currentCard.append(currentName);
+            currentWeather.append(currentName);
 
             /* set Date, temp, humidity, wind */ 
             let timeUTC = new Date(response.dt * 1000);
@@ -58,7 +57,7 @@ searchButton.click(function () {
             
             currentTemp.append("<p>" + "Humidity: " + response.main.humidity + "%" + "</p>");
            
-            currentTemp.append("<p>" + "Wind Speed: " + response.wind.speed + "</p>");
+            currentTemp.append("<p>" + "Wind: " + response.wind.speed + "</p>" + "mph");
 
             /* UV Index API call */
             let uvIndex = `https://api.openweathermap.org/data/2.5/uvi?appid=b8ecb570e32c2e5042581abd004b71bb&lat=${response.coord.lat}&lon=${response.coord.lon}`;
@@ -72,6 +71,8 @@ searchButton.click(function () {
                 let currentUV = currentTemp.append("<p>" + "UV Index: " + response.value + "</p>").addClass("card-text");
                 currentUV.addClass("UV");
                 currentTemp.append(currentUV);
+
+               
                 
             });
 

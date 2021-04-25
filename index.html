@@ -24,39 +24,34 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h1>Weather Dashboard</h1>
+                <h1 id="dashboard"><i class="fas fa-rainbow"></i>Weather Dashboard<i class="fas fa-rainbow"></i></h1>
             </div>
         </div>
-
-     
         <div class="container">
+            
             <div class="row">
-                <div class="col">
-                    <div class="card-body">
-                        <!-- Search for city-->
+            <div class="col">
+            <div class="card-body">
+             <!-- Search for city-->
 
-                        <div class="card" style="width: 15rem;">
-                            <div class="card-body bg-light">
-                                <h6 class="card-subtitle mb-2 text-muted">Search For A City</h6>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control searchInput">
-                                
-                                    <div class="input-group-append">
-                                        <button class="searchButton" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
-
-                                <ul class="list-group">
-
-                                </ul>
-                            </div>
+            <div class="card" style="width: 15rem;">
+                 <div class="card-body bg-light">
+                    <h6 class="card-subtitle mb-2 text-muted">Search For A City</h6>
+                     <div class="input-group mb-3">
+                        <input type="text" class="form-control searchInput">
+                        <div class="input-group-append">
+                        <button class="searchButton" type="button"><i class="fas fa-meteor"></i></button>
+                        </div>
+                        </div>
+                            <ul class="list-group"></ul>
+                        </div>
                         </div>
                     </div>
                 </div>
                 <!-- Current weather layout-->
                 <div class="col mt-4 mr-5">
-                    <div class="card currentCard pb-2 pt-1">
-                        <h5 class="card-title mt-2">Current Forecast</h5>
+                    <div class="card currentWeather pb-2 pt-1">
+                        <h5 class="card-title mt-2">Today's Forecast</h5>
                     </div>
                 </div>
                 <div class="row">
@@ -65,9 +60,8 @@
                             <!-- 5 day forecast layout-->
                             <h5 class="card-title mt-2 mr-5">5-Day Forecast </h5>
                             <div class="row">
-                                <div class="col fiveDayOne">
-                                </div>
-
+                            <div class="col fiveDayOne">
+                            </div>
                             </div>
 
                         </div>
@@ -80,6 +74,8 @@
  <footer>
     <h3> Made with ❤️ by Amber</h3>
 </footer>
+
+
     <script src="assets/js/weather.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
