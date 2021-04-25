@@ -1,21 +1,42 @@
+/* Body style */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    color: #ff6961;
+  }
 
 
-
-.dashboard {
-    color: blanchedalmond;
+.card {
+    color: black;
     text-align: center;
     padding: 10px;
     background: linear-gradient(70deg, yellow, orange, pink);
+    border: 2px solid black;
 }
-.searchBtn {
+.searchButton {
     border-radius: 5px;
     border: 1px solid black;
     color: crimson;
     font-size: medium;
 }
-.current-weather {
+.currentCard {
     padding: 15px;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
 }
+.fiveDayColor {
+    padding: 20px;
+    background-color:blanchedalmond;
+    color: black;
+    float: left;
+    margin: 10px;
+    border: 1px solid lightgray;
+
+}
+
+footer {
+    text-align: center;
+    color: #000000;
+  }
